@@ -1,0 +1,69 @@
+<%-- 
+    Document   : suy-giam-nhan-thuc
+    Created on : Dec 18, 2021, 4:15:19 PM
+    Author     : Cuong
+--%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Suy giảm nhận thức</title>
+    </head>
+    <body>
+        <c:if test="${data != null}">
+            <div>${data}</div>
+        </c:if>
+        
+        
+        <form method="POST" action="">
+            
+            
+            <h3>Yêu cầu nhớ 3 từ đơn giản và nhắc lại sau khi vẽ đồng hồ. Nhớ được?</h3>
+            <input type="text" id="q2" name="q2a" value="a" hidden>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="q2-1a" name="q2-1" value="3"><label for="q2-1a" class="form-check-label">3 từ</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="q2-1b" name="q2-1" value="2"><label for="q2-1b" class="form-check-label">2 từ</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="q2-1c" name="q2-1" value="1"><label for="q2-1c" class="form-check-label">1 từ</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="q2-1d" name="q2-1" value="0" checked><label for="q2-1d" class="form-check-label">0 từ</label>
+            </div>
+            <h3>Yêu cầu vẽ đồng hồ: vẽ đúng mặt đồng hồ với số chỉ giờ VÀ vẽ kim chỉ 11h10</h3>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="q2-2a" name="q2-2" value="2"><label for="q2-2a" class="form-check-label">Vẽ được cả 2</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="q2-2b" name="q2-2" value="1"><label for="q2-2b" class="form-check-label">Vẽ được 1 trong 2</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="q2-2c" name="q2-2" value="0" checked><label for="q2-2c" class="form-check-label">Không vẽ được</label>
+            </div>
+            <h3>Thông tin liên quan</h3>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="q2-3a" name="q2-3" value="q2-3a"><label for="q2-3a" class="form-check-label">Sử dụng nhiều thuốc đồng thời</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="q2-3b" name="q2-3" value="q2-3b"><label for="q2-3b" class="form-check-label">Tiền sử bệnh mạch máu não (đột quỵ/tai biến/thiếu máu não...)</label>
+            </div>
+            <div class="form-check">    
+                <input type="checkbox" class="form-check-input" id="q2-3c" name="q2-3" value="q2-3c"><label for="q2-3c" class="form-check-label">Tiền sử bệnh tim mạch (tăng huyết áp/nhồi máu cơ tim..)</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="q2-3d" name="q2-3" value="q2-3d"><label for="q2-3d" class="form-check-label">Tiền sử bệnh nội tiết (đái tháo đường/suy giáp...)</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="q2-3e" name="q2-3" value="q2-3e"><label for="q2-3e" class="form-check-label">Suy dinh dưỡng</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    
+    </body>
+</html>
