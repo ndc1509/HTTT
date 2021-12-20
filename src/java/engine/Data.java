@@ -17,43 +17,29 @@ import java.util.List;
  * @author Cuong
  */
 public class Data {
-    public static List<Rule> listRules = new ArrayList<>();
-    public String advice;
-    public List<Rule> getListRules() {
+    private static List<Rule> listRules = new ArrayList<>();
+    private String advice = "";
+
+    public Data(){
+    }
+
+    public String getAdvice() {
+        return advice;
+    }
+
+    public void setAdvice(String advice) {
+        this.advice = advice;
+    }
+
+    public static List<Rule> getListRules() {
         return listRules;
     }
 
-    public Data(){
-        contructData();
+    public static void setListRules(List<Rule> listRules) {
+        Data.listRules = listRules;
     }
     
     public void contructData() {
-                //DEMO
-//        Condition male = new SimpleCondition("gender", "male");
-//        Condition female = new SimpleCondition("gender", "female");
-//        
-//        Condition adult = new RangeCondition("age", 18, 100);
-//        Condition notAdult = NotCondition.reverse(adult);
-//        
-//        Condition maleAdult = ConditionGroup.all(male, adult);
-//        Condition femaleAdult = ConditionGroup.all(female, adult);
-//        Condition maleNotAdult = ConditionGroup.all(male, notAdult);
-//        Condition adultMaleOrFemale = ConditionGroup.all(ConditionGroup.any(male, female));
-//       
-//        Action print = f -> System.out.println("Rule fired");
-//        Action printprint = ActionChain.all(Arrays.asList(print, print));
-//        
-//        Rule printWhenMaleNotAdult = new BaseRule("print when male not adult",1,false,maleNotAdult,printprint);
-//        Rule printForFemaleAdult = new BaseRule("print for female adult",2,false,femaleAdult,print);
-//        
-//        RuleEngine engine = new RuleEngine();
-//        
-//        List<FactPair> facts = new ArrayList<>();
-//        facts.add(new FactPair("gender", "male"));
-//        facts.add(new FactPair("age", 10));
-//        
-//        Fact fact = new DefaultFact(new FactPairs(facts));
-//        engine.runRules(Arrays.asList(printForFemaleAdult, printWhenMaleNotAdult), fact);
         
         //Suy giam nhan thuc
         Condition q2a = new SimpleCondition("q2a", ""); //hayquen
@@ -76,40 +62,39 @@ public class Data {
         Condition c5 = ConditionGroup.all(c2, OrConditionGroup.any(q2_3c, q2_3d));
         Condition c6 = ConditionGroup.all(c2, q2_3e);
         
-        Action khong_bi_suy_giam_nhan_thuc = f -> System.out.println(
-                "Không bị suy giảm nhận thức. Cách sinh hoạt phòng tránh suy giảm nhận thức\n" +
-                "- Hoạt động trí não: đọc sách báo, tham gia sinh hoạt cộng đồng\n" +
-                "- Tập thể dục đều đặn, nhẹ nhàng\n" +
-                "- Giữ tinh thần lạc quan, vui vẻ\n" +
-                "- Không sử dụng rượu bia, thuốc lá\n" +
-                "- Kiểm tra sức khỏe định kì và khám bệnh sớm khi có triệu chứng\n" +
-                "- Ăn uống lành mạnh, hạn chế ăn mặn, đường và cholesterol, ăn nhiều rau quả");        
-        Action bi_suy_giam_nhan_thuc = f -> System.out.println(
-                "Bị suy giảm nhận thức, "
-                + "cần đi khám tại bệnh viện chuyên khoa");
-        Action loai_bo_thuoc = f -> System.out.println(
-                "Xem xét lại thuốc và loại bỏ nếu có thể");
-        Action kiem_soat_benh_tim_mach_noi_tiet = f -> System.out.println(
-                "Cần kiểm soát và điều trị tốt bệnh tim mạch, nội tiết:\n"
-                + "- Đo huyết áp hàng ngày\n"
-                + "- Kiểm soát đường máu, lượng mỡ trong máu");
-        Action phong_tranh_nguy_co_dot_quy_tai_bien = f -> System.out.println(
-                "Cần phòng tránh nguy cơ tái phát đột quỵ, tai biến\n"
-                + "- Ăn uống lành mạnh, hạn chế ăn mặn, đường và cholesterol, ăn nhiều rau quả\n"
-                + "- Ngủ đúng giờ đủ giấc\n"
-                + "- Không tắm lạnh, tắm khuya vào buổi tối\n"
-                + "- Không sử dụng rượu bia, thuốc lá\n"
-                + "- Uống thuốc đúng giờ đúng đơn \n"
-                + "- Kiểm tra sức khỏe định kì và khám bệnh sớm khi có triệu chứng");
-        Action tu_van_them_suy_dinh_duong = f -> System.out.println(
-                "- Cần đi khám bệnh để được chăm sóc chuyên khoa\n" +
-                "- Ăn uống lành mạnh, nhiều rau củ, hạn chế chất béo, đường, muối, đồ uống có cồn\n" +
-                "- Chia bữa ăn thành nhiều bữa nhỏ và tạo không khí vui vẻ thoải mái khi ăn\n" +
-                "- Tập thể dục, thể thao vừa sức\n" +
-                "- Sinh hoạt điều độ ăn ngủ đúng giờ\n" +
-                "- Ăn cùng với gia đình\n" +
-                "- Bổ sung dinh dưỡng đường uống\n" +
-                "- Theo dõi cân nặng");
+        Action khong_bi_suy_giam_nhan_thuc = f -> advice +=
+                "Không bị suy giảm nhận thức. Cách sinh hoạt phòng tránh suy giảm nhận thức <br>" +
+                "- Hoạt động trí não: đọc sách báo, tham gia sinh hoạt cộng đồng <br>" +
+                "- Tập thể dục đều đặn, nhẹ nhàng <br>" +
+                "- Giữ tinh thần lạc quan, vui vẻ <br>" +
+                "- Không sử dụng rượu bia, thuốc lá <br>" +
+                "- Kiểm tra sức khỏe định kì và khám bệnh sớm khi có triệu chứng <br>" +
+                "- Ăn uống lành mạnh, hạn chế ăn mặn, đường và cholesterol, ăn nhiều rau quả <br>";        
+        Action bi_suy_giam_nhan_thuc = f -> advice +=
+                "Bị suy giảm nhận thức, cần đi khám tại bệnh viện chuyên khoa <br>";
+        Action loai_bo_thuoc = f -> advice +=
+                "Xem xét lại thuốc và loại bỏ nếu có thể <br>";
+        Action kiem_soat_benh_tim_mach_noi_tiet = f -> advice +=
+                "Cần kiểm soát và điều trị tốt bệnh tim mạch, nội tiết: <br>"
+                + "- Đo huyết áp hàng ngày <br>"
+                + "- Kiểm soát đường máu, lượng mỡ trong máu <br>";
+        Action phong_tranh_nguy_co_dot_quy_tai_bien = f -> advice +=
+                "Cần phòng tránh nguy cơ tái phát đột quỵ, tai biến <br>"
+                + "- Ăn uống lành mạnh, hạn chế ăn mặn, đường và cholesterol, ăn nhiều rau quả <br>"
+                + "- Ngủ đúng giờ đủ giấc <br>"
+                + "- Không tắm lạnh, tắm khuya vào buổi tối <br>"
+                + "- Không sử dụng rượu bia, thuốc lá <br>"
+                + "- Uống thuốc đúng giờ đúng đơn <br>"
+                + "- Kiểm tra sức khỏe định kì và khám bệnh sớm khi có triệu chứng <br>";
+        Action tu_van_them_suy_dinh_duong = f -> advice +=
+                "- Cần đi khám bệnh để được chăm sóc chuyên khoa <br>" +
+                "- Ăn uống lành mạnh, nhiều rau củ, hạn chế chất béo, đường, muối, đồ uống có cồn <br>" +
+                "- Chia bữa ăn thành nhiều bữa nhỏ và tạo không khí vui vẻ thoải mái khi ăn <br>" +
+                "- Tập thể dục, thể thao vừa sức <br>" +
+                "- Sinh hoạt điều độ ăn ngủ đúng giờ <br>" +
+                "- Ăn cùng với gia đình <br>" +
+                "- Bổ sung dinh dưỡng đường uống <br>" +
+                "- Theo dõi cân nặng <br>";
         
         Rule r4 = new BaseRule("Không bị suy giảm nhận thức",1,false,c1, khong_bi_suy_giam_nhan_thuc);
         Rule r5 = new BaseRule("Bị suy giảm nhận thức",1,false,c2, bi_suy_giam_nhan_thuc);
@@ -135,11 +120,12 @@ public class Data {
         listRules.add(r7);
         listRules.add(r8);
         listRules.add(r9); //Nho phai them luat
-        
-//        engine.runRules(listRules, fact);
     }
     
-//    public static void main(String[] args) {
-//
-//    }
+    public String run(Fact fact){
+        contructData();
+        RuleEngine engine = new RuleEngine();
+        engine.runRules(listRules, fact);
+        return advice;
+    }
 }

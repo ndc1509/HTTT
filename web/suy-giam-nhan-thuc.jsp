@@ -5,8 +5,9 @@
 --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,16 +15,9 @@
         <title>Suy giảm nhận thức</title>
     </head>
     <body>
-        <c:if test="${data != null}">
-            <div>${data}</div>
-        </c:if>
-        
-        
-        <form method="POST" action="">
-            
-            
+        <form method="POST" action="ket-luan">
             <h3>Yêu cầu nhớ 3 từ đơn giản và nhắc lại sau khi vẽ đồng hồ. Nhớ được?</h3>
-            <input type="text" id="q2" name="q2a" value="a" hidden>
+            <input type="text" id="q2" name="q2a" value="q2a" hidden>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="q2-1a" name="q2-1" value="3"><label for="q2-1a" class="form-check-label">3 từ</label>
             </div>
@@ -64,6 +58,5 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-    
     </body>
 </html>
