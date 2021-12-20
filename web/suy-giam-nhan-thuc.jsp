@@ -15,7 +15,7 @@
         <title>Suy giảm nhận thức</title>
     </head>
     <body>
-        <form method="POST" action="ket-luan">
+        <form method="POST" action="ket-luan-2">
             <h3>Yêu cầu nhớ 3 từ đơn giản và nhắc lại sau khi vẽ đồng hồ. Nhớ được?</h3>
             <input type="text" id="q2" name="q2a" value="q2a" hidden>
             <div class="form-check">

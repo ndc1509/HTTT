@@ -20,6 +20,8 @@
         <c:if test="${data != null}">
             <div>${data}</div>
         </c:if>
-        <a href="suy-giam-nhan-thuc">Go</a>
+        <a href="suy-giam-nhan-thuc">Suy giam nhan thuc</a>
+        <br>
+        <a href="suy-dinh-duong">Suy dinh duong</a>
     </body>
 </html>

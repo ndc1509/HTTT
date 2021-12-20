@@ -25,32 +25,31 @@ import javax.servlet.http.HttpServletResponse;
  * @author Cuong
  */
 
-@WebServlet(urlPatterns = {"/suy-giam-nhan-thuc", "/ket-luan-2"})
-public class SuyGiamNhanThucServlet extends HttpServlet{
-    private static final long serialVersionUID = 2L;
+@WebServlet(urlPatterns = {"/suy-dinh-duong", "/ket-luan-1"})
+public class SuyDinhDuongServlet extends HttpServlet{
+    private static final long serialVersionUID = 3L;
 
-    public SuyGiamNhanThucServlet() {
+    public SuyDinhDuongServlet() {
         super();
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("suy-giam-nhan-thuc.jsp").forward(req, resp);
+        req.getRequestDispatcher("suy-dinh-duong.jsp").forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String q2 = req.getParameter("q2a");
-        int q2_1 = Integer.valueOf(req.getParameter("q2-1"));
-        int q2_2 = Integer.valueOf(req.getParameter("q2-2"));        
-        String[] q2_3 = req.getParameterValues("q2-3");
+        String q1 = req.getParameter("q1a");
+        int q1_1 = Integer.valueOf(req.getParameter("q1-1"));
+        int q1_2 = Integer.valueOf(req.getParameter("q1-2"));        
+        int q1_3 = Integer.valueOf(req.getParameter("q1-3"));   
+        int q1_4 = Integer.valueOf(req.getParameter("q1-4"));   
+        int q1_5 = Integer.valueOf(req.getParameter("q1-5"));   
+        int q1_6 = Integer.valueOf(req.getParameter("q1-6"));   
         
         List<FactPair> facts = new ArrayList<>();
-        facts.add(new FactPair(q2, "")); //"hay quen" Hoặc "khoxacdinhkhongthoigian"
-        facts.add(new FactPair("q2-score",q2_1 + q2_2));
-        if(q2_3 != null){
-            for(String str:q2_3){
-                facts.add(new FactPair(str, ""));
-            }
-        }
+        facts.add(new FactPair(q1, ""));
+        facts.add(new FactPair("q1-score",q1_1 + q1_2 + q1_3 + q1_4 + q1_5 + q1_6));
+
         Fact fact = new DefaultFact(new FactPairs(facts));
 
         Data d = new Data();
