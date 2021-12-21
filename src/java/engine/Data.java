@@ -97,13 +97,13 @@ public class Data {
         Condition q2_c1 = ConditionGroup.all(OrConditionGroup.any(q2a, q2b) , q2_score_1);
         Condition q2_c2 = ConditionGroup.all(OrConditionGroup.any(q2a, q2b) , q2_score_2);
         
-        Condition q2_c3 = ConditionGroup.all(q1_c2, q2_3a);
-        Condition q2_c4 = ConditionGroup.all(q1_c2, q2_3b);
-        Condition q2_c5 = ConditionGroup.all(q1_c2, OrConditionGroup.any(q2_3c, q2_3d));
-        Condition q2_c6 = ConditionGroup.all(q1_c2, q2_3e);
+        Condition q2_c3 = ConditionGroup.all(q2_c2, q2_3a);
+        Condition q2_c4 = ConditionGroup.all(q2_c2, q2_3b);
+        Condition q2_c5 = ConditionGroup.all(q2_c2, OrConditionGroup.any(q2_3c, q2_3d));
+        Condition q2_c6 = ConditionGroup.all(q2_c2, q2_3e);
         
         Action khong_bi_suy_giam_nhan_thuc = f -> advice +=
-                "Không bị suy giảm nhận thức. Cách sinh hoạt phòng tránh suy giảm nhận thức <br>" +
+                "1. Không bị suy giảm nhận thức. Cách sinh hoạt phòng tránh suy giảm nhận thức <br>" +
                 "- Hoạt động trí não: đọc sách báo, tham gia sinh hoạt cộng đồng <br>" +
                 "- Tập thể dục đều đặn, nhẹ nhàng <br>" +
                 "- Giữ tinh thần lạc quan, vui vẻ <br>" +
@@ -111,7 +111,7 @@ public class Data {
                 "- Kiểm tra sức khỏe định kì và khám bệnh sớm khi có triệu chứng <br>" +
                 "- Ăn uống lành mạnh, hạn chế ăn mặn, đường và cholesterol, ăn nhiều rau quả <br>";        
         Action bi_suy_giam_nhan_thuc = f -> advice +=
-                "Bị suy giảm nhận thức, cần đi khám tại bệnh viện chuyên khoa <br>";
+                "2. Bị suy giảm nhận thức, cần đi khám tại bệnh viện chuyên khoa <br>";
         Action loai_bo_thuoc = f -> advice +=
                 "Xem xét lại thuốc và loại bỏ nếu có thể <br>";
         Action kiem_soat_benh_tim_mach_noi_tiet = f -> advice +=
