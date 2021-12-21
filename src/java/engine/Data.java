@@ -143,6 +143,142 @@ public class Data {
         Rule r8 = new BaseRule("Kiểm soát bệnh tim mạch nội tiết", 1, false, q2_c5, kiem_soat_benh_tim_mach_noi_tiet);
         Rule r9 = new BaseRule("Tư vấn thêm về dinh dưỡng", 1, false, q2_c6, tu_van_them_suy_dinh_duong);
 
+        //ROI LOAN TAM THAN
+        Condition q3a = new SimpleCondition("q3a", ""); //Cảm thấy thay đổi hành vi, khó tập trung
+        
+        Condition q3_score_1a = new RangeCondition<Integer>("q3-score-1", 0, 3); //0-2
+        Condition q3_score_1b = new RangeCondition<Integer>("q3-score-1", 3, 8); //3-7
+        Condition q3_score_2a = new RangeCondition<Integer>("q3-score-2", 0, 1); //0
+        Condition q3_score_2b = new RangeCondition<Integer>("q3-score-2", 1, 7); //1-6
+        
+        Condition q3_c1 = ConditionGroup.any(q3_score_1a, ConditionGroup.all(q3_score_1b, q3_score_2a));
+        Condition q3_c2 = ConditionGroup.all(q3_score_1b, q3_score_2b);
+        
+        Action loi_khuyen_rltt = f -> advice += 
+                "1. Lời khuyên sức khỏe chung <br>" +
+                "Hạn chế và loại trừ sang chấn tâm lý, tạo môi trường lành mạnh	<br>" +
+                "Tránh mâu thuẫn trong gia đình, công việc, bạn bè,...	<br>" +
+                "Tránh căng thẳng kéo dài, xây dựng tình đoàn kết giúp đỡ nhau	<br>" +
+                "An ủi, động viên với những người đang đau khổ, có nỗi buồn hoặc thất vọng <br>" +
+                "Tập luyện thể dục thể thao phù hợp với cơ thể <br>" +
+                "Không sử dụng các chất kích thích như thuốc lá, rượu bia,...<br>";
+        
+        Action bi_rltt = f -> advice +=
+                "2. Bị rối loạn tâm thần <br>" +
+                "Sử dụng thuốc chống loạn thần theo chỉ định của bác sĩ<br>" +
+                "Đến bệnh viện để được bác sĩ điều trị tâm lý<br>";
+        
+        Rule r10_11 = new BaseRule("Không bị rltt", 1, false, q3_c1, loi_khuyen_rltt);
+        Rule r12 = new BaseRule("Bị rltt", 1, false, q3_c2, bi_rltt);
+        
+        //VAN DONG
+        Condition q4a = new SimpleCondition("q4a", "");
+        Condition q4b = new SimpleCondition("q4b", "");
+        
+        Condition q4_1a = new SimpleCondition("q4-1a", ""); //có
+        Condition q4_1b = new SimpleCondition("q4-1b", ""); //không
+        
+        Condition q4_2a = new RangeCondition<Integer>("q4-2a", 0, 10);
+        Condition q4_2b = new RangeCondition<Integer>("q4-2b", 10, 12);
+        
+        Condition q4_3a = new SimpleCondition("q4-3a", ""); //Dùng nhiều thuốc đồng thời
+        Condition q4_3b = new SimpleCondition("q4-3b", ""); //Viêm khớp, loãng xương và các bệnh xương khớp khác.
+        Condition q4_3c = new SimpleCondition("q4-3c", ""); //Đuối sức, teo cơ
+        Condition q4_3d = new SimpleCondition("q4-3d", ""); //Đau
+        
+        Condition q4_c1 = ConditionGroup.all(ConditionGroup.any(q4a, q4b), q4_1a);
+        Condition q4_c2 = ConditionGroup.all(q4_c1, q4_2b);
+        Condition q4_c3 = ConditionGroup.all(q4_c1, q4_2a);
+        Condition q4_c4 = ConditionGroup.all(q4_c3, q4_3a);
+        Condition q4_c5 = ConditionGroup.all(q4_c3, ConditionGroup.any(q4_3b, q4_3c));
+        Condition q4_c6 = ConditionGroup.all(q4_c3, q4_3d);
+
+        Action loi_khuyen_vd = f -> advice += "Lời khuyên chung <br>"
+                + "Nhắc lại những lời khuyên về sức khỏe, lối sống và chăm sóc hàng ngày<br>" +
+                "Bổ sung dinh dưỡng như sữa, các sản phẩm chế biến từ sữa hay các thực phẩm chức năng, để cung cấp thêm dinh dưỡng, vitamin và khoáng chất cần thiết cho cơ thể.<br>" +
+                "Sinh hoạt điều độ, ăn, ngủ đúng giờ, vận động tập luyện phù hợp<br>" +
+                "Người thân cần xử lí môi trường vật lí để giảm nguy cơ té ngã<br>";
+        Action vd_binh_thuong = f -> advice += "Năng lực vận động bình thường<br>"
+                + "Thực hiện các bài tập đa phương thức tại nhà<br>" +
+                "Hỗ trợ việc tự quản lí nhằm việc duy trì tập luyện<br>";
+        Action vd_han_che = f -> advice += "Năng lực vận động hạn chế <br>"
+                + "Thực hiện bài tập đa phương thức và giám sát chặt chẽ<br>" +
+                "Xem xét chuyển sang phục hồi chức năng <br>" +
+                "Cân nhắc bổ sung protein cho cơ thể <br>" +
+                "Xem xét và cung cấp thiết bị hỗ trợ vận động như : Gậy, nạng, xe đẩy, xe lăn và các bộ  phận giả trên cơ thể.<br>";
+        Action vd_dung_nhieu_thuoc = f -> advice += "Dùng nhiều thuốc đồng thời (thuốc chống co giật, benzodiazepin, gây mê, chống trầm cảm, an thần)<br>"
+                + "Xem lại các loại thuốc và giảm số lượng: <br>" +
+                "Loại bỏ các loại thuốc không cần thiết, không hiệu quả và các loại thuốc cùng công dụng với nhau <br>" +
+                "Để biết nên dừng loại thuốc nào hay không thì ông/bà nên hỏi ý kiến của chuyên gia <br>";
+        Action vd_benh_xuong_khop = f -> advice += "Bị bệnh liên quan đến xương khớp, đuối sức, teo cơ<br>"
+                + "Quản lý tích hợp các bệnh đó bằng cách sử dụng thuốc, cộng với việc vận động vừa phải<br>";
+        Action vd_dau = f -> advice += "Kiểm soát đau:<br>" +
+                "Hiếm khi có thể xác định cụ thể nguyên nhân sinh học của tình trạng đau.<br>" +
+                "Vì vậy, cách tốt nhất để quản lý đau là quản lý các yếu tố thể chất liên quan , sự thoải mái về tâm lý, tình trạng dinh dưỡng và giấc ngủ.<br>" +
+                "Nếu đau là rào cản lớn trong hoạt động và vận động, ông/bà nên chuyên gia để được tư vấn<br>";
+        Rule r13 = new BaseRule("Lời khuyên vận động", 1, false, q4_c1, loi_khuyen_vd);
+        Rule r14 = new BaseRule("Lời khuyên vận động", 1, false, q4_c2, vd_binh_thuong);
+        Rule r15 = new BaseRule("Lời khuyên vận động", 1, false, q4_c3, vd_han_che);
+        Rule r16 = new BaseRule("Lời khuyên vận động", 1, false, q4_c4, vd_dung_nhieu_thuoc);
+        Rule r17 = new BaseRule("Lời khuyên vận động", 1, false, q4_c5, vd_benh_xuong_khop);
+        Rule r18 = new BaseRule("Lời khuyên vận động", 1, false, q4_c6, vd_dau);
+        
+        //TRẦM CẢM
+        
+        Condition q5a = new SimpleCondition("q5a", "");
+        Condition q5b = new SimpleCondition("q5b", "");
+        
+        Condition q5_score_1 = new RangeCondition<Integer>("q5-score", 0, 3);
+        Condition q5_score_2 = new RangeCondition<Integer>("q5-score", 3, 9);
+        
+        Condition q5_2a = new SimpleCondition("q5-2a", "");
+        Condition q5_2b = new SimpleCondition("q5-2b", "");
+        Condition q5_2c = new SimpleCondition("q5-2c", "");
+        Condition q5_2d = new SimpleCondition("q5-2d", "");
+        Condition q5_2e = new SimpleCondition("q5-2e", "");
+        Condition q5_2f = new SimpleCondition("q5-2f", "");
+        
+        Condition q5_c1 = ConditionGroup.all(ConditionGroup.any(q5a, q5b), q5_score_2);
+        Condition q5_c2 = ConditionGroup.all(ConditionGroup.any(q5a, q5b), q5_score_1);
+        Condition q5_c3 = ConditionGroup.all(q5_c2, q5_2a);
+        Condition q5_c4 = ConditionGroup.all(q5_c2, q5_2b);
+        Condition q5_c5 = ConditionGroup.all(q5_c2, q5_2c);
+        Condition q5_c6 = ConditionGroup.all(q5_c2, q5_2d);
+        Condition q5_c7 = ConditionGroup.all(q5_c2, q5_2e);
+        Condition q5_c8 = ConditionGroup.all(q5_c2, q5_2f);
+        
+        Action tram_cam = f -> advice += "Trầm cảm<br>" +
+                "Cần được đưa đến bệnh viện chuyên khoa và chữa trị kịp thời<br>";
+        Action trieu_chung_tram_cam = f -> advice += "Triệu chứng trầm cảm<br>" +
+                "1) Tăng cường hoạt động: Thiền định, yoga, đi bộ<br>" +
+                "2) Cần được tư vấn tâm lý<br>" +
+                "3) Gạt bỏ mọi áp lực trong cuộc sống<br>";
+        Action loai_bo_thuoc_tc = f -> advice += "Cần loại bỏ các thuốc không cần thiết<br>";
+        Action tu_van_dinh_duong = f -> advice += "Tư vấn về dinh dưỡng<br>" +
+                "Lựa chọn các thực phẩm giàu chất chống oxy hóa<br>" +
+                "Sử dụng carbohydrate đúng cách<br>" +
+                "Bổ sung thực phẩm giàu protein, vitamin B, vitamin D, thực phẩm giàu selenium, thực phẩm chứa acid béo omega-3<br>";
+        Action dgql_benh_suy_giap = f -> advice += "Cần đánh giá và quản lý bệnh suy giáp<br>" +
+                "Có chế độ dinh dưỡng bổ sung nhiều I-ốt<br>" +
+                "Thư gian, suy nghĩ tích cực<br>" +
+                "Hoạt động thể chất nhẹ nhàng<br>";
+        Action dgql_tinh_trang_dau = f -> advice += "Cần đánh giá kiểm soát tình trạng đau<br>" +
+                "Sử dụng thuốc chống trầm cảm theo chỉ định<br>" +
+                "Hoạt động thể chất phù hợp<br>";
+        Action chu_y_cham_soc = f -> advice += "Cần được chú ý quan tâm chăm sóc nhiều hơn<br>";
+        Action chia_se_noi_buon = f -> advice += "Cần được quan tâm gần gũi chia sẻ nỗi buồn<br>";
+        
+        Rule r19 = new BaseRule("r23", 1, false, q5_c1, tram_cam);
+        Rule r20 = new BaseRule("r23", 1, false, q5_c2, trieu_chung_tram_cam);
+        Rule r21 = new BaseRule("r23", 1, false, q5_c3, loai_bo_thuoc_tc);
+        Rule r22 = new BaseRule("r23", 1, false, q5_c4, tu_van_dinh_duong);
+        Rule r23 = new BaseRule("r23", 1, false, q5_c5, dgql_benh_suy_giap);
+        Rule r24 = new BaseRule("r23", 1, false, q5_c6, dgql_tinh_trang_dau);
+        Rule r25 = new BaseRule("r23", 1, false, q5_c7, chu_y_cham_soc);
+        Rule r26 = new BaseRule("r23", 1, false, q5_c8, chia_se_noi_buon);
+
+        
+        //THÍNH LỰC
         listRules.add(r1);
         listRules.add(r2);
         listRules.add(r3);
@@ -152,6 +288,23 @@ public class Data {
         listRules.add(r7);
         listRules.add(r8);
         listRules.add(r9); //Nho phai them luat
+        listRules.add(r10_11);
+        listRules.add(r12);
+        listRules.add(r13);
+        listRules.add(r14);
+        listRules.add(r15);
+        listRules.add(r16);
+        listRules.add(r17);
+        listRules.add(r18);
+        listRules.add(r19);
+        listRules.add(r20);
+        listRules.add(r21);
+        listRules.add(r22);
+        listRules.add(r23);
+        listRules.add(r24);
+        listRules.add(r25);
+        listRules.add(r26);
+        
     }
     
     public String run(Fact fact){
