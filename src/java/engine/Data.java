@@ -279,6 +279,43 @@ public class Data {
 
         
         //THÍNH LỰC
+        Condition q6a = new SimpleCondition("q6a", ""); //Cảm thấy nghe không rõ
+        Condition q6_1a = new SimpleCondition("q6_1a", ""); //Ktra nghe 3 từ đạt cả 2 tai
+        Condition q6_1b = new SimpleCondition("q6_1b", ""); //Ktra nghe k đạt
+        //Ktra thêm bằng thính lực kế
+        Condition q6_2a = new SimpleCondition("q6_2a", ""); //35 db
+        Condition q6_2b = new SimpleCondition("q6_2b", ""); //35-80 db
+        Condition q6_2c = new SimpleCondition("q6_2c", ""); //>80 db
+        
+        Condition q6_3a = new SimpleCondition("q6_3a", ""); //35 db
+        Condition q6_3b = new SimpleCondition("q6_3b", ""); //35-80 db
+        Condition q6_3c = new SimpleCondition("q6_3c", ""); //>80 db
+        Condition q6_3d = new SimpleCondition("q6_3d", "");
+        Condition q6_3e = new SimpleCondition("q6_3e", "");
+        Condition q6_3f = new SimpleCondition("q6_3f", "");
+        
+        Condition q6_c1 = ConditionGroup.any(ConditionGroup.all(q6a, q6_1a), ConditionGroup.all(q6a, q6_1b, q6_2a)); //Binh thuong
+        Condition q6_c2 = ConditionGroup.all(q6a, q6_1b, q6_2b);//Suy giam trung binh nặng
+        Condition q6_c3 = ConditionGroup.all(q6a, q6_1b, q6_2c);//Điếc
+        
+        Condition c6_c4 = ConditionGroup.all(
+                ConditionGroup.any(q6_c2, q6_c3), 
+                ConditionGroup.any(q6_3a, q6_3b, q6_3c, q6_3d, q6_3e, q6_3f));
+        
+        Action thinh_luc_binh_thuong = f -> advice += "C1 Bình thường, nhắc lại lời khuyên chung<br>";
+        Action thinh_luc_suy_giam_tb_nang = f -> advice += "C3 giảm thính lực mức trung bình nặng<br>" +
+                "- Sử dụng máy trợ thính<br>" +
+                "- Hoặc học đọc qua nhìn môi, qua ký hiệu và các cách giao tiếp khác<br>" +
+                "- Nên đi khám tai mỗi năm 1 lần<br>" +
+                "- Thường xuyên tương tác xã hội<br>";
+        Action thinh_luc_diec = f -> advice += "C4 điếc. Cần đến bệnh viện chuyên khoa tai để được thăm khám và chữa trị";
+        Action thinh_luc_nguy_hiem = f -> advice += "C5 Cần đến bệnh viện chuyên khoa tai để được thăm khám và chữa trị các vấn đề ảnh hưởng đến thính lực";
+        
+        Rule r27 = new BaseRule("r27", 1, false, q6_c1, thinh_luc_binh_thuong);
+        Rule r28 = new BaseRule("r28", 1, false, q6_c2, thinh_luc_suy_giam_tb_nang);
+        Rule r29 = new BaseRule("r29", 1, false, q6_c3, thinh_luc_diec);
+        Rule r30 = new BaseRule("r30", 1, false, c6_c4, thinh_luc_nguy_hiem);
+       
         listRules.add(r1);
         listRules.add(r2);
         listRules.add(r3);
@@ -304,7 +341,12 @@ public class Data {
         listRules.add(r24);
         listRules.add(r25);
         listRules.add(r26);
-        
+        listRules.add(r27);
+        listRules.add(r28);
+        listRules.add(r29);
+        listRules.add(r30);
+
+
     }
     
     public String run(Fact fact){
