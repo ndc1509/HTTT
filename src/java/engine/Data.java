@@ -178,8 +178,8 @@ public class Data {
         Condition q4_1a = new SimpleCondition("q4-1a", ""); //có
         Condition q4_1b = new SimpleCondition("q4-1b", ""); //không
         
-        Condition q4_2a = new RangeCondition<Integer>("q4-2a", 0, 10);
-        Condition q4_2b = new RangeCondition<Integer>("q4-2b", 10, 12);
+        Condition q4_2a = new RangeCondition<Integer>("q4-2", 0, 10);
+        Condition q4_2b = new RangeCondition<Integer>("q4-2", 10, 12);
         
         Condition q4_3a = new SimpleCondition("q4-3a", ""); //Dùng nhiều thuốc đồng thời
         Condition q4_3b = new SimpleCondition("q4-3b", ""); //Viêm khớp, loãng xương và các bệnh xương khớp khác.
