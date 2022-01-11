@@ -15,10 +15,10 @@
         <title>Rối loạn tâm thần</title>
     </head>
     <body>
-        <c:if test="${ask_more == false}">
+     
             <form method="POST" action="roi-loan-tam-than">
                 <h3>Ông bà có các triệu chứng dưới đây không?</h3>
-                <input type="hidden" id="form" name="form" value="1" hidden>
+                
                 <input type="hidden" id="q3" name="q3" value="q3a" hidden>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="q3-1a" name="q3-1" value="q3-1a"><label for="q3-1a" class="form-check-label">Dễ bị kích động</label>
@@ -41,14 +41,9 @@
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="q3-1g" name="q3-1" value="q3-1g"><label for="q3-1g" class="form-check-label">Giảm biểu hiện cảm xúc</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </c:if>
-        <c:if test="${ask_more == true}">
-            <form method="POST" action="roi-loan-tam-than">
-                <input type="hidden" id="form" name="form" value="2">
-                <input type="hidden" id="q3" name="q3" value="${q3}">
-                <input type="hidden" id="q3-score-1" name="q3-score-1" value="${score}">
+ 
+      
+                
                 <h3>Trong 1 tuần vừa rồi, ông/bà có triệu chứng dưới đây xảy ra đồng thời không?</h3>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="q3-2a" name="q3-2" value="q3-2a"><label for="q3-2a" class="form-check-label">Có dấu hiệu bỏ bê bản thân</label>
@@ -70,6 +65,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-        </c:if>
+
     </body>
 </html>

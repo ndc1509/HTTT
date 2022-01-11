@@ -67,11 +67,8 @@ public class RoiLoanTamThanServlet extends HttpServlet{
             req.getRequestDispatcher("ket-luan.jsp").forward(req, resp);
             
     
-          
-            
-            
-
+      
 
         }        
-    }
+    
 }
