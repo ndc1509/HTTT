@@ -20,7 +20,7 @@
                 <h3>Bài kiểm tra với ghế: </h3>
                 <h3>Có thể hoàn thành bài tập đứng lên ngồi xuống ghế 5 lần không dùng tay trong 14 giây không?</h3>
                 <input type="hidden" id="form" name="form" value="1" hidden>
-                <input type="hidden" id="q4" name="q4" value="${q4}}" hidden>
+                <input type="hidden" id="q4" name="q4" value="q4a" hidden>
                 <div class="form-check">
                     <input type="radio" class="form-check-input" id="q4-1a" name="q4-1" value="q4-1a"><label for="q4-1a" class="form-check-label">Có</label>
                 </div>
@@ -41,7 +41,7 @@
                     <input type="radio" class="form-check-input" id="q4-2-1b" name="q4-2-1" value="0"><label for="q4-2-1b" class="form-check-label">Không giữ được trong 10s 0đ</label>
                 </div>
                 <div class="form-check">    
-                    <input type="radio" class="form-check-input" id="q4-2-1c" name="q4-2-1" value="0"><label for="q4-2-1c" class="form-check-label">Không đứng được 0đ Kết thúc ktra</label>
+                    <input type="radio" class="form-check-input" id="q4-2-1c" name="q4-2-1" value="0" checked><label for="q4-2-1c" class="form-check-label">Không đứng được 0đ Kết thúc ktra</label>
                 </div>
                 <h3>Đứng bàn chân sau tiếp xúc nửa bàn chân trước</h3>
                 <div class="form-check">
@@ -51,7 +51,7 @@
                     <input type="radio" class="form-check-input" id="q4-2-2b" name="q4-2-2" value="0"><label for="q4-2-2b" class="form-check-label">Không giữ được trong 10s 0đ</label>
                 </div>
                 <div class="form-check">    
-                    <input type="radio" class="form-check-input" id="q4-2-2c" name="q4-2-2" value="0"><label for="q4-2-2c" class="form-check-label">Không đứng được 0đ Kết thúc ktra</label>
+                    <input type="radio" class="form-check-input" id="q4-2-2c" name="q4-2-2" value="0" checked><label for="q4-2-2c" class="form-check-label">Không đứng được 0đ Kết thúc ktra</label>
                 </div>
                 <h3>Đứng bàn chân sau đặt hoàn toàn ra sau bàn chân trước</h3>
                 <div class="form-check">
@@ -64,7 +64,7 @@
                     <input type="radio" class="form-check-input" id="q4-2-3c" name="q4-2-3" value="0"><label for="q4-2-3c" class="form-check-label">Giữ được từ <3s 0đ</label>
                 </div>
                 <div class="form-check">    
-                    <input type="radio" class="form-check-input" id="q4-2-3d" name="q4-2-3" value="0"><label for="q4-2-3d" class="form-check-label">Không đứng được 0đ</label>
+                    <input type="radio" class="form-check-input" id="q4-2-3d" name="q4-2-3" value="0" checked><label for="q4-2-3d" class="form-check-label">Không đứng được 0đ</label>
                 </div>
                 
                 <h3>Kiểm tra đi bộ 4 mét</h3>
@@ -81,7 +81,7 @@
                     <input type="radio" class="form-check-input" id="q4-2-4d" name="q4-2-4" value="1"><label for="q4-2-4d" class="form-check-label">>8.7s 1đ</label>
                 </div>
                 <div class="form-check">    
-                    <input type="radio" class="form-check-input" id="q4-2-4e" name="q4-2-4" value="0"><label for="q4-2-4e" class="form-check-label">Không thể hoàn thành 0đ</label>
+                    <input type="radio" class="form-check-input" id="q4-2-4e" name="q4-2-4" value="0" checked><label for="q4-2-4e" class="form-check-label">Không thể hoàn thành 0đ</label>
                 </div>
                 
                 <h3>Kiểm tra đứng lên khỏi ghế 5 lần</h3>
@@ -98,7 +98,7 @@
                     <input type="radio" class="form-check-input" id="q4-2-5d" name="q4-2-5" value="1"><label for="q4-2-5d" class="form-check-label">16.7-60s 1đ </label>
                 </div>
                 <div class="form-check">    
-                    <input type="radio" class="form-check-input" id="q4-2-5e" name="q4-2-5" value="0"><label for="q4-2-5e" class="form-check-label">>60s hoặc k thể hoàn thành 0đ</label>
+                    <input type="radio" class="form-check-input" id="q4-2-5e" name="q4-2-5" value="0" checked><label for="q4-2-5e" class="form-check-label">>60s hoặc k thể hoàn thành 0đ</label>
                 </div>
                 
                 <h3>Thông tin thêm</h3>

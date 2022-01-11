@@ -39,48 +39,31 @@ public class SuyGiamNhanThucServlet extends HttpServlet{
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int form = Integer.parseInt(req.getParameter("form"));
-        if(form == 1){
-            String q2 = req.getParameter("q2a");
-            int q2_1 = Integer.parseInt(req.getParameter("q2-1"));
-            int q2_2 = Integer.parseInt(req.getParameter("q2-2")); 
-            int score = q2_1 + q2_2;
-            List<FactPair> facts = new ArrayList<>();
-            facts.add(new FactPair(q2, "")); //"hay quen" Hoặc "khoxacdinhkhongthoigian"
-            facts.add(new FactPair("q2-score", score));
-            
-            Fact fact = new DefaultFact(new FactPairs(facts));
-            Data d = new Data();
-            String advice = d.run(fact);
-            int code = Character.getNumericValue(advice.charAt(0));
-            if(code == 1){
-                req.setAttribute("data", advice);
-                req.getRequestDispatcher("ket-luan.jsp").forward(req, resp);
-            } else {
-                req.setAttribute("ask_more", true);
-                req.setAttribute("q2", q2);
-                req.setAttribute("score", score);
-                req.getRequestDispatcher("suy-giam-nhan-thuc.jsp").forward(req, resp);
-            }
-        } else{
-            String q2 = req.getParameter("q2");
-            int score = Integer.valueOf(req.getParameter("q2-score"));
+        
+        String q2 = req.getParameter("q2a");
+        int q2_1 = Integer.parseInt(req.getParameter("q2-1"));
+        int q2_2 = Integer.parseInt(req.getParameter("q2-2")); 
+        int score = q2_1 + q2_2;
+        List<FactPair> facts = new ArrayList<>();
+        facts.add(new FactPair(q2, "")); //"hay quen" Hoặc "khoxacdinhkhongthoigian"
+        facts.add(new FactPair("q2-score", score));
+
+        if(score < 4){
             String[] q2_3 = req.getParameterValues("q2-3");
-            List<FactPair> facts = new ArrayList<>();
-            facts.add(new FactPair(q2, ""));
-            facts.add(new FactPair("q2-score", score));
             if(q2_3 != null){
                 for(String str:q2_3){
                     facts.add(new FactPair(str, ""));
                 }
             }
-            Fact fact = new DefaultFact(new FactPairs(facts));
+        }
 
-            Data d = new Data();
-            String advice = d.run(fact);
+        Fact fact = new DefaultFact(new FactPairs(facts));
+        Data d = new Data();
+        String advice = d.run(fact);
 
-            req.setAttribute("data", advice);
-            req.getRequestDispatcher("ket-luan.jsp").forward(req, resp);
-        }        
-    }
+        req.setAttribute("data", advice);
+        req.getRequestDispatcher("ket-luan.jsp").forward(req, resp);
+
+    }       
+    
 }

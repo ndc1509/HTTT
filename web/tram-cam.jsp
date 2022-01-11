@@ -17,8 +17,8 @@
     <body>
         
             <form method="POST" action="tram-cam">
-                
-                <input type="hidden" id="q5" name="q5" value="${q5}}" hidden>
+                <h3>Trong 2 tuần qua, ông bà có bị ?</h3>
+                <input type="hidden" id="q5" name="q5" value="q5a" hidden>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="q5-1a" name="q5-1" value="q5-1a"><label for="q5-1a" class="form-check-label">Khó ngủ, không ngủ được hoặc ngủ quá nhiều</label>
                 </div>

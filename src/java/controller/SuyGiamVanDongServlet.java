@@ -54,7 +54,7 @@ public class SuyGiamVanDongServlet extends HttpServlet{
             facts.add(new FactPair(q4_1, ""));
             facts.add(new FactPair("q4-2", sum));
             String[] q4_3 = req.getParameterValues("q4-3");
-            if(q4_3.length > 0){
+            if(q4_3 != null){
                 for(int i=0; i<q4_3.length; i++){
                     facts.add(new FactPair(q4_3[i], ""));
                 }

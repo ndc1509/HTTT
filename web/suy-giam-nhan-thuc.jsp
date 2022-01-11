@@ -15,10 +15,10 @@
         <title>Suy giảm nhận thức</title>
     </head>
     <body>
-        <c:if test="${ask_more == false}">
+       
             <form method="POST" action="suy-giam-nhan-thuc">
                 <h3>Yêu cầu nhớ 3 từ đơn giản và nhắc lại sau khi vẽ đồng hồ. Nhớ được?</h3>
-                <input type="hidden" id="form" name="form" value="1" hidden>
+                
                 <input type="hidden" id="q2" name="q2a" value="q2a" hidden>
                 <div class="form-check">
                     <input type="radio" class="form-check-input" id="q2-1a" name="q2-1" value="3"><label for="q2-1a" class="form-check-label">3 từ</label>
@@ -42,14 +42,8 @@
                 <div class="form-check">
                     <input type="radio" class="form-check-input" id="q2-2c" name="q2-2" value="0" checked><label for="q2-2c" class="form-check-label">Không vẽ được</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </c:if>
-        <c:if test="${ask_more == true}">
-            <form method="POST" action="suy-giam-nhan-thuc">
-                <input type="hidden" id="form" name="form" value="2">
-                <input type="hidden" id="q2" name="q2" value="${q2}">
-                <input type="hidden" id="q2-score" name="q2-score" value="${score}">
+               
+  
                 <h3>Thông tin liên quan</h3>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="q2-3a" name="q2-3" value="q2-3a"><label for="q2-3a" class="form-check-label">Sử dụng nhiều thuốc đồng thời</label>
@@ -68,6 +62,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-            </c:if>
+          
     </body>
 </html>

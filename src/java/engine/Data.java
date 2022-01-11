@@ -287,9 +287,9 @@ public class Data {
         Condition q6_2b = new SimpleCondition("q6_2b", ""); //35-80 db
         Condition q6_2c = new SimpleCondition("q6_2c", ""); //>80 db
         
-        Condition q6_3a = new SimpleCondition("q6_3a", ""); //35 db
-        Condition q6_3b = new SimpleCondition("q6_3b", ""); //35-80 db
-        Condition q6_3c = new SimpleCondition("q6_3c", ""); //>80 db
+        Condition q6_3a = new SimpleCondition("q6_3a", ""); 
+        Condition q6_3b = new SimpleCondition("q6_3b", ""); 
+        Condition q6_3c = new SimpleCondition("q6_3c", ""); 
         Condition q6_3d = new SimpleCondition("q6_3d", "");
         Condition q6_3e = new SimpleCondition("q6_3e", "");
         Condition q6_3f = new SimpleCondition("q6_3f", "");
