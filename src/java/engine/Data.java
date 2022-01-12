@@ -280,19 +280,19 @@ public class Data {
         
         //THÍNH LỰC
         Condition q6a = new SimpleCondition("q6a", ""); //Cảm thấy nghe không rõ
-        Condition q6_1a = new SimpleCondition("q6_1a", ""); //Ktra nghe 3 từ đạt cả 2 tai
-        Condition q6_1b = new SimpleCondition("q6_1b", ""); //Ktra nghe k đạt
+        Condition q6_1a = new SimpleCondition("q6-1a", ""); //Ktra nghe 3 từ đạt cả 2 tai
+        Condition q6_1b = new SimpleCondition("q6-1b", ""); //Ktra nghe k đạt
         //Ktra thêm bằng thính lực kế
-        Condition q6_2a = new SimpleCondition("q6_2a", ""); //35 db
-        Condition q6_2b = new SimpleCondition("q6_2b", ""); //35-80 db
-        Condition q6_2c = new SimpleCondition("q6_2c", ""); //>80 db
+        Condition q6_2a = new SimpleCondition("q6-2a", ""); //35 db
+        Condition q6_2b = new SimpleCondition("q6-2b", ""); //35-80 db
+        Condition q6_2c = new SimpleCondition("q6-2c", ""); //>80 db
         
-        Condition q6_3a = new SimpleCondition("q6_3a", ""); 
-        Condition q6_3b = new SimpleCondition("q6_3b", ""); 
-        Condition q6_3c = new SimpleCondition("q6_3c", ""); 
-        Condition q6_3d = new SimpleCondition("q6_3d", "");
-        Condition q6_3e = new SimpleCondition("q6_3e", "");
-        Condition q6_3f = new SimpleCondition("q6_3f", "");
+        Condition q6_3a = new SimpleCondition("q6-3a", ""); 
+        Condition q6_3b = new SimpleCondition("q6-3b", ""); 
+        Condition q6_3c = new SimpleCondition("q6-3c", ""); 
+        Condition q6_3d = new SimpleCondition("q6-3d", "");
+        Condition q6_3e = new SimpleCondition("q6-3e", "");
+        Condition q6_3f = new SimpleCondition("q6-3f", "");
         
         Condition q6_c1 = ConditionGroup.any(ConditionGroup.all(q6a, q6_1a), ConditionGroup.all(q6a, q6_1b, q6_2a)); //Binh thuong
         Condition q6_c2 = ConditionGroup.all(q6a, q6_1b, q6_2b);//Suy giam trung binh nặng

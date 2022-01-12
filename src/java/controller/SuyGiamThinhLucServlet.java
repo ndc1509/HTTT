@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Cuong
  */
 @WebServlet(urlPatterns = {"/suy-giam-thinh-luc", "/ket-luan-6"})
-public class SuyGiamThinhLucServlet {
+public class SuyGiamThinhLucServlet extends HttpServlet{
     private static final long serialVersionUID = 2L;
 
     public SuyGiamThinhLucServlet() {

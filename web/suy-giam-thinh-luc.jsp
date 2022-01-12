@@ -30,13 +30,13 @@
                 <h3>Kiếm tra thêm bằng thính lực kế</h3>
                 
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="q6-2a" name="q6-2" value="q6_2a"><label for="q6-2a" class="form-check-label">Giữ đc trong 10s 1đ</label>
+                    <input type="radio" class="form-check-input" id="q6-2a" name="q6-2" value="q6-2a"><label for="q6-2a" class="form-check-label"><= 35 db</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="q6-2b" name="q6-2" value="q6_2b"><label for="q6-2b" class="form-check-label">Không giữ được trong 10s 0đ</label>
+                    <input type="radio" class="form-check-input" id="q6-2b" name="q6-2" value="q6-2b"><label for="q6-2b" class="form-check-label">35-80db</label>
                 </div>
                 <div class="form-check">    
-                    <input type="radio" class="form-check-input" id="q6-2c" name="q6-2" value="q6_2c" checked><label for="q6-2c" class="form-check-label">Không đứng được 0đ Kết thúc ktra</label>
+                    <input type="radio" class="form-check-input" id="q6-2c" name="q6-2" value="q6-2c" checked><label for="q6-2c" class="form-check-label">>80db</label>
                 </div>
                 
                 <h3>Thông tin thêm</h3>
