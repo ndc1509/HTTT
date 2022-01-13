@@ -17,7 +17,7 @@ public class RangeCondition<T extends Comparable> extends SingleFieldCondition {
     public boolean test(Fact fact) {
         Optional<T> f = fact(fact);
         return f.filter(dt -> (lowBoundInclusive == null || dt.compareTo(lowBoundInclusive) >= 0)
-                && (hiBoundExclusive == null || dt.compareTo(hiBoundExclusive) < 0))
+                && (hiBoundExclusive == null || dt.compareTo(hiBoundExclusive) <= 0))
                 .isPresent();
     }
 }

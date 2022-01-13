@@ -11,7 +11,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link href="style.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="/HTTT/script.js"></script>
         <title>Suy giảm thính lực</title>
     </head>
     <body>
@@ -21,22 +24,24 @@
                 <input type="hidden" id="form" name="form" value="1" hidden>
                 <input type="hidden" id="q6" name="q6" value="q6a" hidden>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="q6-1a" name="q6-1" value="q6-1a"><label for="q6-1a" class="form-check-label">Đạt (đủ 3 từ mỗi tai)</label>
+                    <input type="radio" class="form-check-input q61" id="q6-1a" name="q6-1" value="q6-1a" checked><label for="q6-1a" class="form-check-label">Đạt (đủ 3 từ mỗi tai)</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="q6-1b" name="q6-1" value="q6-1b"><label for="q6-1b" class="form-check-label">Không đạt</label>
+                    <input type="radio" class="form-check-input q61" id="q6-1b" name="q6-1" value="q6-1b"><label for="q6-1b" class="form-check-label">Không đạt</label>
                 </div>
 
-                <h3>Kiếm tra thêm bằng thính lực kế</h3>
                 
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" id="q6-2a" name="q6-2" value="q6-2a"><label for="q6-2a" class="form-check-label"><= 35 db</label>
-                </div>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" id="q6-2b" name="q6-2" value="q6-2b"><label for="q6-2b" class="form-check-label">35-80db</label>
-                </div>
-                <div class="form-check">    
-                    <input type="radio" class="form-check-input" id="q6-2c" name="q6-2" value="q6-2c" checked><label for="q6-2c" class="form-check-label">>80db</label>
+                <div id="q62">
+                    <h3>Kiếm tra thêm bằng thính lực kế</h3>                
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="q6-2a" name="q6-2" value="q6-2a"><label for="q6-2a" class="form-check-label"><= 35 db</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="q6-2b" name="q6-2" value="q6-2b"><label for="q6-2b" class="form-check-label">35-80db</label>
+                    </div>
+                    <div class="form-check">    
+                        <input type="radio" class="form-check-input" id="q6-2c" name="q6-2" value="q6-2c" checked><label for="q6-2c" class="form-check-label">>80db</label>
+                    </div>
                 </div>
                 
                 <h3>Thông tin thêm</h3>
@@ -60,5 +65,33 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+        <script>
+            $(document).ready(function () {
+                $('#q62').hide();
+                $('#q6-1b').click(function () {
+                    if ($(this).is(':checked')) {
+                        $('#q62').show();
+                    } else{
+                        $('#q62').hide();
+                    }
+                });
+
+                $('#q6-1a').click(function () {
+                    if ($(this).is(':checked')) {
+                        $('#q62').hide();
+                    } else{
+                        $('#q62').show();
+                    }
+                });
+            });
+            
+ 
+            
+
+            
+        </script>
+    
     </body>
+            
+
 </html>
