@@ -50,15 +50,19 @@ public class SuyGiamVanDongServlet extends HttpServlet{
             int q4_2_4 = Integer.parseInt(req.getParameter("q4-2-4")); 
             int q4_2_5 = Integer.parseInt(req.getParameter("q4-2-5")); 
             int sum = q4_2_1 + q4_2_2 + q4_2_3 + q4_2_4 + q4_2_5;
+            if(q4_2_1 == 0 || q4_2_2 ==0)
+                sum = 0;
             facts.add(new FactPair(q4, ""));
             facts.add(new FactPair(q4_1, ""));
             facts.add(new FactPair("q4-2", sum));
-            String[] q4_3 = req.getParameterValues("q4-3");
-            if(q4_3 != null){
-                for(int i=0; i<q4_3.length; i++){
-                    facts.add(new FactPair(q4_3[i], ""));
+            if(q4_2_1 != 0 && q4_2_2 != 0 && sum <=9){
+                String[] q4_3 = req.getParameterValues("q4-3");
+                if(q4_3 != null){
+                    for(int i=0; i<q4_3.length; i++){
+                        facts.add(new FactPair(q4_3[i], ""));
+                    }
                 }
-            }
+            } 
         }
             
             

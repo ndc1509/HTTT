@@ -90,7 +90,7 @@ public class Data {
         //Suy giam nhan thuc
         Condition q2a = new SimpleCondition("q2a", ""); //Hay quên
         Condition q2b = new SimpleCondition("q2b", ""); //Khó xác định không gian thời gian
-          
+        
         Condition q2_score_1 = new RangeCondition<Integer>("q2-score", 4, 5);
         Condition q2_score_2 = new RangeCondition<Integer>("q2-score", 0, 3);
         
